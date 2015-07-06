@@ -1,0 +1,12 @@
+require 'rubygems'
+require 'json'
+parsed=JSON.parse(ENV['VCAP_SERVICES'])
+parsed.each do |key, array|
+	array.each do |serviceMap|
+		serviceMap["credentials"].each do |index,value|
+			if !(value.class.method_defined? :flatten)
+				print "export vcap_service_"+serviceMap["name"].gsub(/[^0-9a-z ]/i, '')+"_"+index+"="+value.to_s+"\n"
+			end
+		end
+	end
+end
