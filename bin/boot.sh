@@ -15,6 +15,8 @@
 export APP_ROOT=$HOME
 export LD_LIBRARY_PATH=$APP_ROOT/openresty/lib:$LD_LIBRARY_PATH
 
+$(ruby get_env)
+
 conf_file=$APP_ROOT/openresty/nginx/conf/nginx.conf
 
 erb $conf_file > $APP_ROOT/openresty/nginx/conf/nginx-final.conf

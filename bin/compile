@@ -70,3 +70,4 @@ if [[ "$(grep directory: Staticfile)X" != "X" ]]; then
 fi
 
 cp $compile_buildpack_bin/boot.sh .
+cp $compile_buildpack_bin/get_env .
