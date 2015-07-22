@@ -13,14 +13,14 @@ exclude_files:
   - staticfile_buildpack-*v*.zip
 
 url_to_dependency_map:
-  - match: nginx.tgz
-    name: nginx
+  - match: openresty.tgz
+    name: openresty
     version: 1.8.0
 
 dependencies:
-  - name: nginx
+  - name: openresty
     version: 1.8.0
-    uri: https://s3.amazonaws.com/pivotal-buildpacks/nginx/cflinuxfs2/nginx-1.8.0-linux-x64.tgz
+    uri: https://github.com/muymoo/staticfile-buildpack/raw/files/openresty-1.7.10.1.tar.gz
     cf_stacks:
       - cflinuxfs2
     md5: e12cddcba72d5008f94b298a02a8e6d4
