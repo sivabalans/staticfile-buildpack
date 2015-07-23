@@ -1,38 +1,39 @@
 GIT
   remote: https://github.com/cf-buildpacks/machete
-  revision: 6e098abc9e3843b3712726eb7d24585e453fb264
-  tag: v0.0.10
+  revision: f00f7f7e401915e15633746620af1a6a07b3b46f
+  tag: v0.0.16
   specs:
-    machete (0.0.10)
+    machete (0.0.16)
       httparty
 
 GIT
   remote: https://github.com/cloudfoundry-incubator/buildpack-packager
-  revision: 501f8de837ce3ee1b5f005cc24d6469cde05eedf
-  tag: v2.1.2
+  revision: 58ccd566aee3e1dbfd1810256e3e41eb39d14d54
+  tag: v2.2.3
   specs:
-    buildpack-packager (0.0.1)
+    buildpack-packager (2.2.3)
       activesupport (~> 4.1.8)
       kwalify
-      rspec
+      terminal-table (~> 1.4.5)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (4.1.10)
+    activesupport (4.1.12)
       i18n (~> 0.6, >= 0.6.9)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     diff-lcs (1.2.5)
-    httparty (0.13.3)
+    excon (0.45.3)
+    httparty (0.13.5)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
     i18n (0.7.0)
     json (1.8.2)
     kwalify (0.7.2)
-    minitest (5.6.0)
+    minitest (5.7.0)
     multi_xml (0.5.5)
     rspec (3.2.0)
       rspec-core (~> 3.2.0)
@@ -49,6 +50,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.2.0)
     rspec-support (3.2.2)
+    terminal-table (1.4.5)
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
@@ -58,6 +60,10 @@ PLATFORMS
 
 DEPENDENCIES
   buildpack-packager!
+  excon
   machete!
   rspec
   rspec-instafail
+
+BUNDLED WITH
+   1.10.5

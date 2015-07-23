@@ -1,3 +1,40 @@
+v1.2.1 Jul 16, 2015
+====================
+
+* Adding helpful message for unsupported stack
+  (https://www.pivotaltracker.com/story/show/98579464)
+
+* Compress nginx response body for more MIME types
+  (https://www.pivotaltracker.com/story/show/98128132)
+
+* Update nginx to version 1.8.0
+  (https://www.pivotaltracker.com/story/show/97663450)
+
+v1.2.0 Jun 24, 2015
+====================
+
+* Remove nginx version display
+  (https://www.pivotaltracker.com/story/show/94542440)
+
+* Remove lucid-specific binaries from manifest.yml
+  (https://www.pivotaltracker.com/story/show/96135874)
+
+* Give helpful message on unsupported stacks
+  (https://www.pivotaltracker.com/story/show/96590146)
+
+v1.1.1 Jun 15, 2015
+====================
+
+* Bump compile extensions
+  (https://www.pivotaltracker.com/story/show/96957294)
+    
+v1.1.0 Jun 05, 2015
+====================
+
+* Use compile-extensions to pull in nginx
+* This nginx is dynamically linked to pcre.
+  (https://www.pivotaltracker.com/story/show/96283548)
+
 v1.0.0 Apr 29, 2015
 ====================
 - Add Machete rspec integration tests

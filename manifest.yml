@@ -12,7 +12,15 @@ exclude_files:
   - buildpack-packager/
   - staticfile_buildpack-*v*.zip
 
-url_to_dependency_map: []
+url_to_dependency_map:
+  - match: openresty.tgz
+    name: openresty
+    version: 1.8.0
 
-dependencies: []
-
+dependencies:
+  - name: openresty
+    version: 1.8.0
+    uri: https://raw.githubusercontent.com/muymoo/staticfile-buildpack/files/openresty-1.7.10.1.tar.gz
+    cf_stacks:
+      - cflinuxfs2
+    md5: ae7ee6fb6891578c6b59c67d85219e81
