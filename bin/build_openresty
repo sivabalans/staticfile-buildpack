@@ -58,4 +58,5 @@ sudo mv /tmp/session.lua $build/lualib/resty
 
 # Archive it all up
 mkdir -p $target
-tar -zcvpf $target/openresty-$openresty_version.tar.gz $build
+cd /app
+tar -zcvpf $target/openresty-$openresty_version.tar.gz openresty
