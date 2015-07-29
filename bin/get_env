@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'json'
-parsed=JSON.parse(ENV['VCAP_SERVICES'])
-parsed.each do |key, array|
+parsed_vcap_services=JSON.parse(ENV['VCAP_SERVICES'])
+parsed_vcap_services.each do |key, array|
 	array.each do |serviceMap|
 		serviceMap["credentials"].each do |index,value|
 			if !(value.class.method_defined? :flatten)
@@ -10,3 +10,6 @@ parsed.each do |key, array|
 		end
 	end
 end
+
+parsed_vcap_application=JSON.parse(ENV['VCAP_APPLICATION'])
+print "export vcap_application_name="+parsed_vcap_application["application_name"]
