@@ -1,0 +1,35 @@
+#!/bin/bash
+# http://openresty.org/#Installation
+# https://github.com/cloudfoundry-community/nginx-buildpack#building-the-nginx-package
+
+set -e #halt on any error
+
+
+src=~/src
+build=/app/openresty
+target=/vagrant/vendor
+
+cd /tmp
+
+echo "Installing pip [https://pip.pypa.io]"
+wget https://bootstrap.pypa.io/get-pip.py
+
+python /tmp/get-pip.py --user
+
+cd $src
+mkdir -p .nginx-nr-agent/lib
+~/.local/bin/pip install --target=.nginx-nr-agent/lib  python-daemon
+
+
+cd /tmp
+wget http://pp.nginx.com/ek/nginx-nr-agent-2.0.0.6.tgz
+
+cd $src/.nginx-nr-agent
+tar xzf /tmp/nginx-nr-agent-2.0.0.6.tgz
+mkdir logs
+
+rm -rf usr/share etc
+
+mkdir -p $target
+cd $src
+tar -zcvpf $target/nginx-nr-agent.tar.gz .nginx-nr-agent

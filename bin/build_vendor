@@ -1,3 +1,6 @@
 set -e #halt on any error
 echo "Building Openresty"
 /vagrant/bin/build_openresty
+
+echo "Building nginx nr agent"
+/vagrant/bin/build_nginx_nr_agent
