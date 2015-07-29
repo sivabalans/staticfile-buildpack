@@ -17,6 +17,18 @@ export LD_LIBRARY_PATH=$APP_ROOT/openresty/lib:$LD_LIBRARY_PATH
 
 $(ruby get_env)
 
+if [ -d .nginx-nr-agent ]
+	then
+	export PYTHONPATH=.nginx-nr-agent/lib:$PYTHONPATH
+	if [ ${#NEW_RELIC_LICENSE_KEY} -eq 0 ]
+		then
+		export NEW_RELIC_LICENSE_KEY=$(ruby get_credentials newrelic | grep "license" | awk -F "=" '{print $NF}')
+	fi
+	erb .nginx-nr-agent/nginx-nr-agent.ini > .nginx-nr-agent/nginx-nr-agent-final.ini
+	python .nginx-nr-agent/usr/bin/nginx-nr-agent.py -c .nginx-nr-agent/nginx-nr-agent-final.ini -p `pwd`/.nginx-nr-agent/nginx-nr-agent.pid start
+fi
+
+
 conf_file=$APP_ROOT/openresty/nginx/conf/nginx.conf
 
 erb $conf_file > $APP_ROOT/openresty/nginx/conf/nginx-final.conf

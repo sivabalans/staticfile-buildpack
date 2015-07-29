@@ -15,12 +15,21 @@ exclude_files:
 url_to_dependency_map:
   - match: openresty.tgz
     name: openresty
-    version: 1.8.0
+    version: 1.7.10.2
+  - match: nginx-nr-agent.tar.gz
+    name: nginx-nr-agent
+    version: 2.0.0.6
 
 dependencies:
   - name: openresty
-    version: 1.8.0
-    uri: https://raw.githubusercontent.com/muymoo/staticfile-buildpack/files/openresty-1.7.10.1.tar.gz
+    version: 1.7.10.2
+    uri: https://raw.githubusercontent.com/muymoo/staticfile-buildpack/files/vendor/openresty-1.7.10.2.tar.gz
     cf_stacks:
       - cflinuxfs2
-    md5: ae7ee6fb6891578c6b59c67d85219e81
+    md5: bd5a79fc76b1238eb9ecc6d23d53f6cc
+  - name: nginx-nr-agent
+    version: 2.0.0.6
+    uri: https://raw.githubusercontent.com/muymoo/staticfile-buildpack/files/vendor/nginx-nr-agent.tar.gz
+    cf_stacks:
+      - cflinuxfs2
+    md5: 1d674e2c403a48743d90830b2c7172b1

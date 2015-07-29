@@ -66,5 +66,16 @@ if [[ "$(grep directory: Staticfile)X" != "X" ]]; then
   touch openresty/nginx/conf/.enable_directory_index
 fi
 
+# If we have a newrelic binding
+if [[ $VCAP_SERVICES == *"newrelic"* ]]
+then
+  status "Enabling Newrelic monitoring"
+  $compile_buildpack_dir/compile-extensions/bin/download_dependency nginx-nr-agent.tar.gz /tmp
+  tar xzf /tmp/nginx-nr-agent.tar.gz
+  cp $compile_buildpack_dir/conf/nginx-nr-agent.ini .nginx-nr-agent/nginx-nr-agent.ini
+fi
+
+
 cp $compile_buildpack_bin/boot.sh .
 cp $compile_buildpack_bin/get_env .
+cp $compile_buildpack_bin/get_credentials .
